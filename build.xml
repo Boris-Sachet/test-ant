@@ -4,15 +4,15 @@
     </description>
     <!-- set global properties for this build -->
     <property name="src" location="src"/>
-    <property name="build" location="out"/>
+    <property name="build" location="build"/>
     <property name="dist" location="dist"/>
     <property name="report.dir" location="report" />
     <property name="test.dir" location="src" />
     <property name="doc.dir" location="doc" />
 
     <path id="classpath.test">
-        <pathelement location="C:\Users\boris\.m2\repository\junit\junit\4.12\junit-4.12.jar"/>
-        <pathelement location="C:\Users\boris\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar"/>
+        <pathelement location="/usr/share/java/junit4.jar"/>
+        <pathelement location="/usr/share/java/hamcrest-all.jar"/>
         <pathelement location="${build}"/>
         <pathelement location="${doc.dir}"/>
     </path>
@@ -41,10 +41,10 @@
                 <path refid="classpath.test"/>
             </classpath>
 
-            <batchtest fork="yes" todir="${report.dir}\raw">
+            <batchtest fork="yes" todir="${report.dir}/raw">
                 <formatter type="xml"/>
                 <fileset dir="${test.dir}">
-                    <include name="**\*Test*.java" />
+                    <include name="**/*Test*.java" />
                 </fileset>
             </batchtest>
         </junit>
